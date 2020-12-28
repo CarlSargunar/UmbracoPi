@@ -59,13 +59,13 @@ Once that's all done we're ready to do the next step of getting .NET up and runn
 
 Once you're ready to set-up .NET on the Pi. Unfortunately there isn't an automated installation for .NET which runs on ARM - you need to do this manually - See [https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian). 
 
-Fortunately, the excellent [Pete Gallagher](https://twitter.com/pete_codes) has taken on most of the hard work and created a script we can use. I've updated his original script with the latest updated version of the framework, but his original article is linked in the references.
+Fortunately, building on the work of the excellent [Pete Gallagher](https://twitter.com/pete_codes) there's now a script to get everytihng installed and set-up for .NET Core 3.1 on the Pi.
 
 Run the following command in a terminal window. 
 
-    wget -O - https://raw.githubusercontent.com/CarlSargunar/dotnetcore3pi/feature/Update_Runtime_and_SDK/install.sh | sudo bash
+    wget -O - https://raw.githubusercontent.com/CarlSargunar/UmbracoPi/main/Install/install.sh | sudo bash
 
-Check for updates by running the following again in terminal
+Check for updates once complete by running the following in terminal
 
 - sudo apt-get -y update
 - sudo apt-get -t upgrade
@@ -74,7 +74,28 @@ And in theory ... that's it. Right? There's a simple test - run this in a termin
 
     dotnet --info
 
+If that displays the
 
+At this point I would really recommend spending a bit of time reading more about IoT, there's a whole fantastic world out there of cool things to do and I'll link some more articles and resources in the footnotes. 
+
+## A slice of UmbracoPi
+
+Now that we have .NET Core 3.1 up and running, the next step is getting Umbraco set-up
+
+- Install from source
+- Install from package
+- Deploy over FTP
+- Database limitations
+- Video
+
+## Learning IoT
+
+The following resources are great places to go if you want to learn more about IoT and .NET Core
+
+ - [Microsoft IoT Docs](https://docs.microsoft.com/en-us/dotnet/iot/)
+ - [PeteCodes.co.uk](https://www.petecodes.co.uk/blog/)
+ - [Micro:bit](https://microbit.org/projects/)
+ - [Tinkercad](https://www.tinkercad.com/)
 
 ## References
 
