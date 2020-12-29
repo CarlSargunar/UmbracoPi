@@ -88,9 +88,17 @@ Now that we have .NET Core 3.1 up and running, the next step is getting Umbraco 
 - Database limitations
 - Video
 
+## Further cool things we can do
+
+Now that Umbraco is on Linux, the next logical step is getting it running with Docker, so firing up an instance is super quick and super small containers. Once we start down that route, a load of other cool things become available to us
+
+ - Building the search index into a separate docker container
+ - And the database
+ - And the Media container
+
 ## Learning IoT
 
-The following resources are great places to go if you want to learn more about IoT and .NET Core
+A tangent to going on this journey for me in particular has been opening my eyes to the cool things that can be done with IoT and .NET. The following resources are great places to go if you want to learn more about all that sort of thing
 
  - [Microsoft IoT Docs](https://docs.microsoft.com/en-us/dotnet/iot/)
  - [PeteCodes.co.uk](https://www.petecodes.co.uk/blog/)
