@@ -61,11 +61,12 @@ Once you've got that all ready and a fresh hot drink on stand-by, it's time to s
     - You'll need to go through the start-up and set-up process and connect the Pi to the internet - this will be needed to complete later parts of this guide.
     - There's a more in-depth guide [here](https://www.raspberrypi.org/help/quick-start-guide.../)
 2. *OPTIONALLY* - You can use the guide [here](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) to boot your Pi from USB, which tends to be a fair amount faster and more reliable than the MicroSD card, especially if you can mount it on a USB3 port
-3. Install all the updates required, there will almost certainly be a bunch of updates to install. To do that open a terminal window ***Screenshot here of opening a terminal window*** and type in the following commands. Each will take between a few seconds to a few minutes depending on how many updates there are.
+3. Install all the updates required, there will almost certainly be a bunch of updates to install. To do that open a terminal window or connect to the Pi over SSH and type in the following commands. Each will take between a few seconds to a few minutes depending on how many updates there are.
     - sudo apt-get -y update
     - sudo apt-get -t upgrade
 4. Restart the pi once the updates are all completed with the following command
     - sudo reboot
+5. *OPTIONALLY* - You can run through this entire guide with a monitor and keybord plugged into the Pi, but it might be simpler for you to do it all remotely. If this sounds like it could help, follow the steps at the end of this guide
 
 
 Once that's all done we're ready to do the next step of getting .NET up and running, but before doing that it's an idea to explore around the Raspberry operating system to get familiar with it.
@@ -78,7 +79,7 @@ Fortunately, building on the work of the excellent [Pete Gallagher](https://twit
 
 Run the following command in a terminal window. 
 
-    wget -O - https://raw.githubusercontent.com/CarlSargunar/UmbracoPi/main/Install/install.sh | sudo bash
+    wget -O - https://raw.githubusercontent.com/CarlSargunar/UmbracoPi/main/Install/installCore.sh | sudo bash
 
 Check for updates once complete by running the following in terminal
 
@@ -128,11 +129,36 @@ At this point the site is now running! That's it - you did it!
 
 Ok - slightly anti-climactic, since there will be no output on the console. Well in actual fact the site is configured to run on the default ports: http://localhost:5000 and https://localhost:5001. Here's where you can open up Chromium on the pi and browse to the url https://localhost:5001 and go through the set up process, and once that's completed we really are done. The Umbraco Alpha running on a Raspberry Pi
 
+![Umbraco Running on the Pi](media/UmbracoPiRunning.png)
+
+For ease of use I've also created a script to install and setup the Umbraco template which you can run by doing the following
+
+    wget -O - https://raw.githubusercontent.com/CarlSargunar/UmbracoPi/main/Install/installUmbraco.sh | sudo bash
+
 ## Phew!
 
 Well that was emotional! From starting with a fresh install we ended up with a working copy of the Umbraco back office. It's still very much a work in progress and the Core team are great at sending [updates on their progress](https://umbraco.com/blog/status-of-migration-to-net-core-december-2020/)
 
-I've gone through this process from beginning to end and recorded a video [Link]
+### Video
+
+I'm working on a video of the process but my video editing skills are a little rusty, and my audio is a bit sketchy but here's the first version
+
+Part 1 : Initial Setup 
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="media/Pisetup1-1.mp4" type="video/mp4">
+  </video>
+</figure>
+
+Part 2 : Completing Setup
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="media/Pisetup2-1.mp4" type="video/mp4">
+  </video>
+</figure>
+
 
 ## Further cool things we can do
 
@@ -149,7 +175,6 @@ Once we start down that route, a load of other cool things become available to u
 
 Super-Cool!
 
-
 ## Learning IoT
 
 A tangent to going on this journey for me in particular has been opening my eyes to the cool things that can be done with IoT and .NET. The following resources are great places to go if you want to learn more about all that sort of thing
@@ -158,6 +183,26 @@ A tangent to going on this journey for me in particular has been opening my eyes
  - [PeteCodes.co.uk](https://www.petecodes.co.uk/blog/)
  - [Micro:bit](https://microbit.org/projects/)
  - [Tinkercad](https://www.tinkercad.com/)
+
+### Optional Extras - Remote connection
+
+You can run the entire Raspberry Pi setup with a remote connection to the Pi, once you've got it set up. This is how I use the Pi because space is limited on my desk and it may work for you. There's no right way 
+
+To get this up and running, from the Pi desktop Raspberry Pi Configuration Utility
+
+![RaspiConfig](media/RaspiConfig.png)
+
+And then enabling SSH, and optionally VNC. This will allow you to connect to the Pi on SSH from a remote computer over SSH using the username pi and the password you configured on start-up. VNC is a remote desktop tool which allows you to view the Pi desktop remotely. The client is available [here](https://www.realvnc.com/en/connect/download/viewer/)
+
+![RaspiConfig](media/SSHVNC.png)
+
+You can connect to the Pi over SSH by running the following from a command prompt.
+
+    ssh pi@X.X.X.X
+
+Where X.X.X.X is the IP address of your Pi. It should also work on the Pi's DNS Name.
+
+If you want to run your Pi on a Static IP, you can follow the guide : [https://www.raspberrypi.org/documentation/configuration/tcpip/](https://www.raspberrypi.org/documentation/configuration/tcpip/)
 
 ## References
 
