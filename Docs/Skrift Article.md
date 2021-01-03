@@ -26,14 +26,27 @@ The Raspberry Pi, first created in 2012 is a single board Arm based computer tha
 
 If you've never used linux, but want to try it's a fantastic way of getting up and running on a small cheap device, and it will open a gateway into a fantastic world of the Internet of Things. The instructions in this guide will also work on Linux, so if you don't have a raspberry pi, and want to try this, you could also do this on either an old computer or a virtual machine running linux. 
 
+There are a few things you're going to have to remember when going through these steps
+
+ - This is all very experimental. Some times things don't work
+ - If things don't work the things to try are
+   - Did you install all updates
+   - Did you restart the pi
+   - Did you give up, wipe the disk and start from scratch 
+
+Be patient, keep trying and if you get stuck reach out - there are a lot of very helpful people out there who will help, and if I can I would be more than happy to :-)
+
 ## Recommended setup
 
 So - you've got your raspberry pi 2 or greater, what else will you need?
 
+ - A windows computer capable of running SQL Server Express to act as a database server for the Raspberry Pi (more on that later)
  - A MicroSD card, I would suggest minimum of 4gb, preferrably 8gb
  - Optionally, a fast USB drive. Micro SD cards are a lot slower than SSDs, and the RPi4 supports usb3 which makes things a lot faster when experimenting
  - A monitor which you can plug into the Raspberry Pi to get things setup. Once it's set-up you can run it purely on a network
  - Your usual peripherals - Keyboard, Mouse, endless supply of tea or coffee
+
+One thing to note - whilst this WILL work on a Raspberry Pi 2, it's a very slow computer and you will be waiting around a lot. I would really recommend a more recent Pi, because even the Pi 4 can take a little while to get things going.
 
 You'll also need to :
 
@@ -80,7 +93,27 @@ At this point I would really recommend spending a bit of time reading more about
 
 ## A slice of UmbracoPi
 
-Now that we have .NET Core 3.1 up and running, the next step is getting Umbraco set-up
+Now that we have .NET Core 3.1 up and running, the next step is getting Umbraco set-up. Fortunately that's really straightforward. The uniCore team released an alpha package which you can just fire up following instructions on [https://umbraco.com/blog/net-core-alpha-release/](https://umbraco.com/blog/net-core-alpha-release/)
+
+I'll transpose the key info you need here to make it easier for you. 
+
+To use the new alpha release, you will need to insert a custom NuGet feed to your sources. This can be done in a command prompt of your choice:
+
+    dotnet nuget add source "https://www.myget.org/F/umbracoprereleases/api/v3/index.json" -n "Umbraco Prereleases"
+
+Once this feed is available as a NuGet source, you can install the new Umbraco [dotnet template](https://github.com/dotnet/templating#overview):
+
+    dotnet new -i Umbraco.Templates::0.5.0-alpha001
+
+Now that the Umbraco template is available, you can create a new empty Umbraco solution:
+
+    dotnet new umbraco -n MyCustomUmbracoSolution
+
+Now things get a little messy because this is still an alpha - the database. Currently SqlCE is NOT supported on anything other than windows, so you'll need to set up a SQL server on another machine. I won't go through the setup in this article, but there are guides around - e.g. [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
+
+Before you go futher in this guide you'll want to make sure you can connect to your database server from your Pi.
+
+Once that's all done
 
 - Install from source
 - Install from package
@@ -109,3 +142,4 @@ A tangent to going on this journey for me in particular has been opening my eyes
 
  - [The .NET Core show Podcast](https://twitter.com/dotNetCoreShow) - A Brief History of .NET Core : [https://dotnetcore.show/episode-1-a-brief-history-of-net-core/](https://dotnetcore.show/episode-1-a-brief-history-of-net-core/) 
  - [Pete Gallagher](https://twitter.com/pete_codes) with the guide to running .NET 3 on a Pi [https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/](https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/)
+ - Setting up Sql server Express for Remote TCP connections [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
