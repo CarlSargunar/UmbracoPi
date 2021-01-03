@@ -175,6 +175,8 @@ Once we start down that route, a load of other cool things become available to u
 
 Super-Cool!
 
+Once I get my blog up and running, I plan to explore some of these ideas further and to document my progress there, so if that's of interest you can follow me on [Twitter](https://twitter.com/CSargunar) for the links when they exist.
+
 ## Learning IoT
 
 A tangent to going on this journey for me in particular has been opening my eyes to the cool things that can be done with IoT and .NET. The following resources are great places to go if you want to learn more about all that sort of thing
