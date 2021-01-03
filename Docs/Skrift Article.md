@@ -43,7 +43,9 @@ So - you've got your raspberry pi 2 or greater, what else will you need?
  - A windows computer capable of running SQL Server Express to act as a database server for the Raspberry Pi (more on that later)
  - A MicroSD card, I would suggest minimum of 4gb, preferrably 8gb
  - Optionally, a fast USB drive. Micro SD cards are a lot slower than SSDs, and the RPi4 supports usb3 which makes things a lot faster when experimenting
- - A monitor which you can plug into the Raspberry Pi to get things setup. Once it's set-up you can run it purely on a network
+ - Some way of viewing the output of the pi
+   - A monitor which you can plug into the Raspberry Pi to get things setup. Once it's set-up you can run it purely on a network
+   - A HDMI Capture device which can output the HDMI signal form the Pi to your host computer (Note: This is more advanced to set-up so if you want to go down this route and get stuck, please reach out and I'll help if I can) 
  - Your usual peripherals - Keyboard, Mouse, endless supply of tea or coffee
 
 One thing to note - whilst this WILL work on a Raspberry Pi 2, it's a very slow computer and you will be waiting around a lot. I would really recommend a more recent Pi, because even the Pi 4 can take a little while to get things going.
@@ -58,7 +60,7 @@ Once you've got that all ready and a fresh hot drink on stand-by, it's time to s
 1. Using Balena Etcher, or the Raspberry Pi Imager mount your chosen operating system onto the card using your main computer. Once copied, insert the card into the Pi, connect the display and power it up.
     - You'll need to go through the startup and set-up process and connect the Pi to the internet - this will be needed to complete later parts of this guide.
     - There's a more in-depth guide [here](https://www.raspberrypi.org/help/quick-start-guide.../)
-2. *OPTIONALLY* - You can use the guide [here](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) to boot your Pi from USB, which tends to be a fair amount faster than the MicroSD card, especially if you can mount it on a USB3 port
+2. *OPTIONALLY* - You can use the guide [here](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) to boot your Pi from USB, which tends to be a fair amount faster and more reliable than the MicroSD card, especially if you can mount it on a USB3 port
 3. Install all the updates required, there will almost certainly be a bunch of updates to install. To do that open a terminal window ***Screenshot here of opening a terminal window*** and type in the following commands. Each will take between a few seconds to a few minutes depending on how many updates there are.
     - sudo apt-get -y update
     - sudo apt-get -t upgrade
@@ -107,27 +109,46 @@ Once this feed is available as a NuGet source, you can install the new Umbraco [
 
 Now that the Umbraco template is available, you can create a new empty Umbraco solution:
 
-    dotnet new umbraco -n MyCustomUmbracoSolution
+    dotnet new umbraco -n UmbracoPi
 
 Now things get a little messy because this is still an alpha - the database. Currently SqlCE is NOT supported on anything other than windows, so you'll need to set up a SQL server on another machine. I won't go through the setup in this article, but there are guides around - e.g. [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
 
 Before you go futher in this guide you'll want to make sure you can connect to your database server from your Pi.
 
-Once that's all done
+Once that's all done you're ready to basically go. Navigate to the folder created for your project
 
-- Install from source
-- Install from package
-- Deploy over FTP
-- Database limitations
-- Video
+    cd UmbracoPi
+    dotnet build
+
+Lots of stuff will happen. Be patient. When it's completed you can kick off the app
+
+    dotnet run
+
+At this point the site is now running! That's it - you did it! 
+
+Ok - slightly anti-climactic, since there will be no output on the console. Well in actual fact the site is configured to run on the default ports: http://localhost:5000 and https://localhost:5001. Here's where you can open up Chromium on the pi and browse to the the url https://localhost:5001 and go through the set up process, and once that's completed we really are done. The Umbraco Alpha running on a Raspberry Pi
+
+## Phew!
+
+Well that was emotional! From starting with a fresh install we ended up with a working copy of the Umbraco back office. It's still very much a work in progress and the Core team are great at sending [updates on their progress](https://umbraco.com/blog/status-of-migration-to-net-core-december-2020/)
+
+I've gone through this process from beginning to end and recorded a video [Link]
 
 ## Further cool things we can do
 
-Now that Umbraco is on Linux, the next logical step is getting it running with Docker, so firing up an instance is super quick and super small containers. Once we start down that route, a load of other cool things become available to us
+Now that Umbraco is on Linux, the next logical step is getting it running with Docker, so firing up an instance is super quick and super small containers. The prolific Callum Whyte wrote about running Umbraco in [Docker and Kubernetes in a December 2018 Skrift Article](https://skrift.io/issues/umbraco-docker-and-kubernetes-should-we-care/) using a docker conainer version of windows which alluded to a huge problem at the time - size! The container was approx 10GB becuase of the requirement of running on a full version of Windows.
+
+Now that we can run on Linux, and running .net Core that size requirement drastically drops so much that you could get a full system up and running with around 250Mb!!!  This is a lot easier to work with, to learn from and ultimately to run in Production - it's all super exciting!
+
+Once we start down that route, a load of other cool things become available to us
 
  - Building the search index into a separate docker container
- - And the database
- - And the Media container
+ - And the database (I live in the hope that MySQL or a similar light database technology will be supported by Umbraco in a later release)
+ - Switching dev environments to run wherever - it's well knows that as awesome as Windows is, running Linux gives you much better resource utilisation. We just prooved that :-)
+ - Running a container orchestrator like Kubernetes to manage load balanced containerised environments
+
+Super-Cool!
+
 
 ## Learning IoT
 
@@ -140,6 +161,7 @@ A tangent to going on this journey for me in particular has been opening my eyes
 
 ## References
 
+ - Running .Net Core on Linux Debian - [https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian)
  - [The .NET Core show Podcast](https://twitter.com/dotNetCoreShow) - A Brief History of .NET Core : [https://dotnetcore.show/episode-1-a-brief-history-of-net-core/](https://dotnetcore.show/episode-1-a-brief-history-of-net-core/) 
  - [Pete Gallagher](https://twitter.com/pete_codes) with the guide to running .NET 3 on a Pi [https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/](https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/)
  - Setting up Sql server Express for Remote TCP connections [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
