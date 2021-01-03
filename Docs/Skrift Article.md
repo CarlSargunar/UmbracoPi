@@ -188,7 +188,7 @@ A tangent to going on this journey for me in particular has been opening my eyes
 
 ### Optional Extras - Remote connection
 
-You can run the entire Raspberry Pi setup with a remote connection to the Pi, once you've got it set up. This is how I use the Pi because space is limited on my desk and it may work for you. There's no right way 
+You can run the entire Raspberry Pi setup with a remote connection to the Pi, once you've got it set up. This is how I use the Pi because space is limited on my desk and it may work for you. There's no right way. 
 
 To get this up and running, from the Pi desktop Raspberry Pi Configuration Utility
 
