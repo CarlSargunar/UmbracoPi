@@ -16,15 +16,15 @@ Finally in November 2020, [.NET 5 was released](https://devblogs.microsoft.com/d
 
 ## Well that's great and all but so what?
 
-This is a big deal, and there are plenty of examples online of compiling a [self-contained console app](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-application) on Windows, copying it onto a USB drive, popping it into a Mac and firing it up and boom! And this is where it becomes interesting to us as Umbraco developers, becuase that's the future - .NET Everywhere!!!
+This is a big deal, and there are plenty of examples online of compiling a [self-contained console app](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-application) on Windows, copying it onto a USB drive, popping it into a Mac and firing it up and boom! And this is where it becomes interesting to us as Umbraco developers, because that's the future - .NET Everywhere!!!
 
-Windows server and IIS are never going to catch up to Linux in the application hosting world. Knowing this, but building the tools to allow .NET to run bascally anywhere, Microsoft neatly sidestepped the problem and gained access to a much bigger market. Make no mistake, in the future, your websites will be hosted and running on Linux.
+Windows server and IIS are never going to catch up to Linux in the application hosting world. Knowing this, but building the tools to allow .NET to run basically anywhere, Microsoft neatly sidestepped the problem and gained access to a much bigger market. Make no mistake, in the future, your websites will be hosted and running on Linux.
 
 ## Introducing the Raspberry Pi
 
-The Raspberry Pi, first created in 2012 is a single board Arm based computer that has been getting faster and more **functional**. You don't need anything like the most recent one, a Raspberry Pi 2 or  greater will do. You need at least a Pi 2 becuase of certain instructions which aren't available in the Pi zero or first generation, but if you want to buy one I'd recommend a Pi 4. The latest [Raspberry Pi 400](https://thepihut.com/products/raspberry-pi-400) is a £70 computer that's built into a keyboard and is quite simply astonishing!
+The Raspberry Pi, first created in 2012 is a single board ARM-based computer that has been getting faster and more **functional**. You don't need anything like the most recent one, a Raspberry Pi 2 or  greater will do. You need at least a Pi 2 because of certain instructions which aren't available in the Pi zero or first generation, but if you want to buy one I'd recommend a Pi 4. The latest [Raspberry Pi 400](https://thepihut.com/products/raspberry-pi-400) is a £70 computer that's built into a keyboard and is quite simply astonishing!
 
-If you've never used linux, but want to try it's a fantastic way of getting up and running on a small cheap device, and it will open a gateway into a fantastic world of the Internet of Things. The instructions in this guide will also work on Linux, so if you don't have a Raspberry Pi, and want to try this, you could also do this on either an old computer or a virtual machine running linux. 
+If you've never used Linux, but want to try it's a fantastic way of getting up and running on a small cheap device, and it will open a gateway into a fantastic world of the Internet of Things. The instructions in this guide will also work on Linux, so if you don't have a Raspberry Pi, and want to try this, you could also do this on either an old computer or a virtual machine running Linux. 
 
 There are a few things you're going to have to remember when going through these steps
 
@@ -41,7 +41,7 @@ Be patient, keep trying and if you get stuck reach out - there are a lot of very
 So - you've got your Raspberry Pi 2 or greater, what else will you need?
 
  - A windows computer capable of running SQL Server Express to act as a database server for the Raspberry Pi (more on that later)
- - A MicroSD card, I would suggest minimum of 4gb, preferrably 8gb
+ - A MicroSD card, I would suggest minimum of 4gb, preferably 8gb
  - Optionally, a fast USB drive. Micro SD cards are a lot slower than SSDs, and the RPi4 supports usb3 which makes things a lot faster when experimenting
  - Some way of viewing the output of the pi
    - A monitor which you can plug into the Raspberry Pi to get things setup. Once it's set-up you can run it purely on a network
@@ -52,13 +52,13 @@ One thing to note - whilst this WILL work on a Raspberry Pi 2, it's a very slow 
 
 You'll also need to :
 
- - Download [Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/) - you'll need to choose the right version dependng on which Pi you have, but the Lite version is what I normally use.
+ - Download [Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/) - you'll need to choose the right version depending on which Pi you have, but the Lite version is what I normally use.
  - An SD imaging tool - I use [Balena Etcher](https://www.balena.io/etcher/) as it's one of the most flexible ones but alternatively the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) works too
 
 Once you've got that all ready and a fresh hot drink on stand-by, it's time to start
 
 1. Using Balena Etcher, or the Raspberry Pi Imager mount your chosen operating system onto the card using your main computer. Once copied, insert the card into the Pi, connect the display and power it up.
-    - You'll need to go through the startup and set-up process and connect the Pi to the internet - this will be needed to complete later parts of this guide.
+    - You'll need to go through the start-up and set-up process and connect the Pi to the internet - this will be needed to complete later parts of this guide.
     - There's a more in-depth guide [here](https://www.raspberrypi.org/help/quick-start-guide.../)
 2. *OPTIONALLY* - You can use the guide [here](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) to boot your Pi from USB, which tends to be a fair amount faster and more reliable than the MicroSD card, especially if you can mount it on a USB3 port
 3. Install all the updates required, there will almost certainly be a bunch of updates to install. To do that open a terminal window ***Screenshot here of opening a terminal window*** and type in the following commands. Each will take between a few seconds to a few minutes depending on how many updates there are.
@@ -68,13 +68,13 @@ Once you've got that all ready and a fresh hot drink on stand-by, it's time to s
     - sudo reboot
 
 
-Once that's all done we're ready to do the next step of getting .NET up and running, but before doing that it's an idea to explore around the raspbery operating system to get familiar with it.
+Once that's all done we're ready to do the next step of getting .NET up and running, but before doing that it's an idea to explore around the Raspberry operating system to get familiar with it.
 
 ## Getting .Net Core up and running
 
-Once you're ready to set-up .NET on the Pi. Unfortunately there isn't an automated installation for .NET which runs on ARM - you need to do this manually - See [https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian). 
+Once you're ready to set-up .NET on the Pi. Unfortunately there isn't an automated installation for .NET which runs on ARM - you need to do this manually - See [https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian). 
 
-Fortunately, building on the work of the excellent [Pete Gallagher](https://twitter.com/pete_codes) there's now a script to get everytihng installed and set-up for .NET Core 3.1 on the Pi.
+Fortunately, building on the work of the excellent [Pete Gallagher](https://twitter.com/pete_codes) there's now a script to get everything installed and set-up for .NET Core 3.1 on the Pi.
 
 Run the following command in a terminal window. 
 
@@ -89,7 +89,7 @@ And in theory ... that's it. Right? There's a simple test - run this in a termin
 
     dotnet --info
 
-If that displays the
+If that displays info about the installed runtime, you're good to go!
 
 At this point I would really recommend spending a bit of time reading more about IoT, there's a whole fantastic world out there of cool things to do and I'll link some more articles and resources in the footnotes. 
 
@@ -113,7 +113,7 @@ Now that the Umbraco template is available, you can create a new empty Umbraco s
 
 Now things get a little messy because this is still an alpha - the database. Currently SqlCE is NOT supported on anything other than windows, so you'll need to set up a SQL server on another machine. I won't go through the setup in this article, but there are guides around - e.g. [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
 
-Before you go futher in this guide you'll want to make sure you can connect to your database server from your Pi.
+Before you go further in this guide you'll want to make sure you can connect to your database server from your Pi.
 
 Once that's all done you're ready to basically go. Navigate to the folder created for your project
 
@@ -126,7 +126,7 @@ Lots of stuff will happen. Be patient. When it's completed you can kick off the 
 
 At this point the site is now running! That's it - you did it! 
 
-Ok - slightly anti-climactic, since there will be no output on the console. Well in actual fact the site is configured to run on the default ports: http://localhost:5000 and https://localhost:5001. Here's where you can open up Chromium on the pi and browse to the the url https://localhost:5001 and go through the set up process, and once that's completed we really are done. The Umbraco Alpha running on a Raspberry Pi
+Ok - slightly anti-climactic, since there will be no output on the console. Well in actual fact the site is configured to run on the default ports: http://localhost:5000 and https://localhost:5001. Here's where you can open up Chromium on the pi and browse to the url https://localhost:5001 and go through the set up process, and once that's completed we really are done. The Umbraco Alpha running on a Raspberry Pi
 
 ## Phew!
 
@@ -136,7 +136,7 @@ I've gone through this process from beginning to end and recorded a video [Link]
 
 ## Further cool things we can do
 
-Now that Umbraco is on Linux, the next logical step is getting it running with Docker, so firing up an instance is super quick and super small containers. The prolific Callum Whyte wrote about running Umbraco in [Docker and Kubernetes in a December 2018 Skrift Article](https://skrift.io/issues/umbraco-docker-and-kubernetes-should-we-care/) using a docker conainer version of windows which alluded to a huge problem at the time - size! The container was approx 10GB becuase of the requirement of running on a full version of Windows.
+Now that Umbraco is on Linux, the next logical step is getting it running with Docker, so firing up an instance is super quick and super small containers. The prolific Callum Whyte wrote about running Umbraco in [Docker and Kubernetes in a December 2018 Skrift Article](https://skrift.io/issues/umbraco-docker-and-kubernetes-should-we-care/) using a docker container version of windows which alluded to a huge problem at the time - size! The container was approx. 10GB because of the requirement of running on a full version of Windows.
 
 Now that we can run on Linux, and running .net Core that size requirement drastically drops so much that you could get a full system up and running with around 250Mb!!!  This is a lot easier to work with, to learn from and ultimately to run in Production - it's all super exciting!
 
@@ -144,7 +144,7 @@ Once we start down that route, a load of other cool things become available to u
 
  - Building the search index into a separate docker container
  - And the database (I live in the hope that MySQL or a similar light database technology will be supported by Umbraco in a later release)
- - Switching dev environments to run wherever - it's well knows that as awesome as Windows is, running Linux gives you much better resource utilisation. We just prooved that :-)
+ - Switching dev environments to run wherever - it's well knows that as awesome as Windows is, running Linux gives you much better resource utilisation. We just proved that :-)
  - Running a container orchestrator like Kubernetes to manage load balanced containerised environments
 
 Super-Cool!
@@ -161,7 +161,7 @@ A tangent to going on this journey for me in particular has been opening my eyes
 
 ## References
 
- - Running .Net Core on Linux Debian - [https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian)
+ - Running .Net Core on Linux Debian - [https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian)
  - [The .NET Core show Podcast](https://twitter.com/dotNetCoreShow) - A Brief History of .NET Core : [https://dotnetcore.show/episode-1-a-brief-history-of-net-core/](https://dotnetcore.show/episode-1-a-brief-history-of-net-core/) 
  - [Pete Gallagher](https://twitter.com/pete_codes) with the guide to running .NET 3 on a Pi [https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/](https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/)
- - Setting up Sql server Express for Remote TCP connections [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
+ - Setting up SQL server Express for Remote TCP connections [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
