@@ -1,8 +1,8 @@
-# Running Umbraco on a raspberry PI or How I stopped worrying and learned to love Linux
+# Running Umbraco on a Raspberry Pi or How I stopped worrying and learned to love Linux
 
-Why would you want to run Umbraco on a raspberry pi? Well, the short answer is, you wouldn't. It's not powerful enough to be useful in a production environment, it's "experimental"... well, still in Alpha. That's not the full story though, and the reason it's worthwhile doing is becuase of .NET Core, or as it will be known as going forward, .NET 5. 
+Why would you want to run Umbraco on a Raspberry Pi? Well, the short answer is, you wouldn't. It's not powerful enough to be useful in a production environment, it's "experimental"... well, still in Alpha. That's not the full story though, and the reason it's worthwhile doing is because of .NET Core, or as it will be known as going forward, .NET 5. 
 
-We're about to go on a journey, you and I, which will install and setup .NET on a Pi and fire up the latest alpha of project UniCore. I'm assuming here that you a .NET Framework developer who wants to know a bit more about the cross platform capabilities of .NET Core, or .Net 5. However before we go too far forward, at this point we need a Wayne's world flashback on the history of .NET
+We're about to go on a journey, you and I, which will install and setup .NET on a Pi and fire up the latest alpha of project UniCore. I'm assuming here that you a .NET Framework developer who wants to know a bit more about the cross platform capabilities of .NET Core, or .Net 5. However before we go too far forward, at this point we need a Wayne's World flashback on the history of .NET.
 
 ## A little history of .NET Core
 
@@ -16,15 +16,15 @@ Finally in November 2020, [.NET 5 was released](https://devblogs.microsoft.com/d
 
 ## Well that's great and all but so what?
 
-This is a big deal, and there are plenty of examples online of compiling a [Self contained console app](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-application) on windows, copying it onto a USB drive, popping it into a Mac and firing it up and boom! And this is where it becomes interesting to us as Umbraco developers, becuase that's the future - .NET Everywhere!!!
+This is a big deal, and there are plenty of examples online of compiling a [self-contained console app](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-application) on Windows, copying it onto a USB drive, popping it into a Mac and firing it up and boom! And this is where it becomes interesting to us as Umbraco developers, becuase that's the future - .NET Everywhere!!!
 
 Windows server and IIS are never going to catch up to Linux in the application hosting world. Knowing this, but building the tools to allow .NET to run bascally anywhere, Microsoft neatly sidestepped the problem and gained access to a much bigger market. Make no mistake, in the future, your websites will be hosted and running on Linux.
 
 ## Introducing the Raspberry Pi
 
-The Raspberry Pi, first created in 2012 is a single board Arm based computer that has been getting faster and more **functional**. You don't need anything like the most recent one, a Raspberry pi 2 or  greater will do. You need at least a Pi 2 becuase of certain instructions which aren't available in the Pi zero or first generation, but if you want to buy one I'd recommend a Pi 4. The latest [raspberry pi 400](https://thepihut.com/products/raspberry-pi-400) is a £70 computer that's built into a keyboard and is quite simply astonishing!
+The Raspberry Pi, first created in 2012 is a single board Arm based computer that has been getting faster and more **functional**. You don't need anything like the most recent one, a Raspberry Pi 2 or  greater will do. You need at least a Pi 2 becuase of certain instructions which aren't available in the Pi zero or first generation, but if you want to buy one I'd recommend a Pi 4. The latest [Raspberry Pi 400](https://thepihut.com/products/raspberry-pi-400) is a £70 computer that's built into a keyboard and is quite simply astonishing!
 
-If you've never used linux, but want to try it's a fantastic way of getting up and running on a small cheap device, and it will open a gateway into a fantastic world of the Internet of Things. The instructions in this guide will also work on Linux, so if you don't have a raspberry pi, and want to try this, you could also do this on either an old computer or a virtual machine running linux. 
+If you've never used linux, but want to try it's a fantastic way of getting up and running on a small cheap device, and it will open a gateway into a fantastic world of the Internet of Things. The instructions in this guide will also work on Linux, so if you don't have a Raspberry Pi, and want to try this, you could also do this on either an old computer or a virtual machine running linux. 
 
 There are a few things you're going to have to remember when going through these steps
 
@@ -38,7 +38,7 @@ Be patient, keep trying and if you get stuck reach out - there are a lot of very
 
 ## Recommended setup
 
-So - you've got your raspberry pi 2 or greater, what else will you need?
+So - you've got your Raspberry Pi 2 or greater, what else will you need?
 
  - A windows computer capable of running SQL Server Express to act as a database server for the Raspberry Pi (more on that later)
  - A MicroSD card, I would suggest minimum of 4gb, preferrably 8gb
