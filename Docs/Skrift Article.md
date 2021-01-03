@@ -42,10 +42,10 @@ So - you've got your Raspberry Pi 2 or greater, what else will you need?
 
  - A windows computer capable of running SQL Server Express to act as a database server for the Raspberry Pi (more on that later)
  - A MicroSD card, I would suggest minimum of 4gb, preferably 8gb
- - Optionally, a fast USB drive. Micro SD cards are a lot slower than SSDs, and the RPi4 supports usb3 which makes things a lot faster when experimenting
+ - *OPTIONALLY* - A fast USB drive. Micro SD cards are a lot slower than SSDs, and the RPi4 supports usb3 which makes things a lot faster when experimenting
  - Some way of viewing the output of the pi
    - A monitor which you can plug into the Raspberry Pi to get things setup. Once it's set-up you can run it purely on a network
-   - A HDMI Capture device which can output the HDMI signal form the Pi to your host computer (Note: This is more advanced to set-up so if you want to go down this route and get stuck, please reach out and I'll help if I can) 
+   - A HDMI Capture device which can output the HDMI signal form the Pi to your host computer (Note: This is more advanced to set-up so if you want to go down this route and get stuck, please reach out and I'll be happy to help if I can) 
  - Your usual peripherals - Keyboard, Mouse, endless supply of tea or coffee
 
 One thing to note - whilst this WILL work on a Raspberry Pi 2, it's a very slow computer and you will be waiting around a lot. I would really recommend a more recent Pi, because even the Pi 4 can take a little while to get things going.
