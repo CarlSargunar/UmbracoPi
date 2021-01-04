@@ -144,11 +144,9 @@ Well that was emotional! From starting with a fresh install we ended up with a w
 
 ### Video
 
-I'm working on a video of the process but my video editing skills are a little rusty, and my audio is a bit sketchy but here's the first version...
+I'm working on a video of the process but my video editing skills are a little rusty, and my audio is a bit sketchy but here's the first version. It's quite a long video and when I get a sec I'll work on some timecodes for key parts of the video so you can skip the bits where the Pi is just doing updates.
 
-... or it WOULD be here, except Youtube is still processing my video, but it's also in the repo and hosted on my site so you can download the raw video [here](https://sargunar.com/files/UmbracoPi.mkv)
-
-I'll update the link with a YouTube video when they finish doing their thing
+[https://www.youtube.com/watch?v=ZJfqj5IFKHU&feature=youtu.be](https://www.youtube.com/watch?v=ZJfqj5IFKHU&feature=youtu.be)
 
 ## Further cool things we can do
 
