@@ -209,6 +209,8 @@ If you want to run your Pi on a Static IP, you can follow the guide : [https://w
 ## References
 
  - Running .Net Core on Linux Debian - [https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian)
+ - .Net Core 3.1 Release [https://dotnet.microsoft.com/download/dotnet-core/3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
  - [The .NET Core show Podcast](https://twitter.com/dotNetCoreShow) - A Brief History of .NET Core : [https://dotnetcore.show/episode-1-a-brief-history-of-net-core/](https://dotnetcore.show/episode-1-a-brief-history-of-net-core/) 
  - [Pete Gallagher](https://twitter.com/pete_codes) with the guide to running .NET 3 on a Pi [https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/](https://www.petecodes.co.uk/explorations-in-dot-net-core-3-0-for-raspberry-pi/)
  - Setting up SQL server Express for Remote TCP connections [https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/](https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/)
+ 
