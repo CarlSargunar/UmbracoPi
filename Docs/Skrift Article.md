@@ -81,7 +81,7 @@ Run the following command in a terminal window.
 
     wget -O - https://raw.githubusercontent.com/CarlSargunar/UmbracoPi/main/Install/installCore.sh | sudo bash
 
-Check for updates once complete by running the following in terminal
+Check for updates once complete by running the following in terminal. It's very unlikely there will be any, but this is a good habit to get into when making any changes.
 
 - sudo apt-get -y update
 - sudo apt-get -t upgrade
