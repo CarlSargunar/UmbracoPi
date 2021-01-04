@@ -132,7 +132,9 @@ Ok - slightly anti-climactic, since there will be no output on the console. Well
 
 ![Umbraco Running on the Pi](media/UmbracoPiRunning.png)
 
-For ease of use I've also created a script to install and setup the Umbraco template which you can run by doing the following
+One thing you'll notice - as part of the install process, the application has to restart when it first creates the main configuration file - at this point the site will stop running. Simply run "dotnet run" again from the terminal window and then reload the site in the browser.
+
+For ease of use I've also created a script to install and setup the Umbraco template which you can run by doing the following. However, as you'll see if you watched the video - for some reason that didn't actually work (I blame the demo gods) so for now ignore this script until figure out what went wrong. 
 
     wget -O - https://raw.githubusercontent.com/CarlSargunar/UmbracoPi/main/Install/installUmbraco.sh | sudo bash
 
@@ -142,24 +144,11 @@ Well that was emotional! From starting with a fresh install we ended up with a w
 
 ### Video
 
-I'm working on a video of the process but my video editing skills are a little rusty, and my audio is a bit sketchy but here's the first version
+I'm working on a video of the process but my video editing skills are a little rusty, and my audio is a bit sketchy but here's the first version...
 
-Part 1 : Initial Setup 
+... or it WOULD be here, except Youtube is still processing my video, but it's also in the repo and hosted on my site so you can download the raw video [here](https://sargunar.com/files/UmbracoPi.mkv)
 
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true">
-    <source src="media/Pisetup1-1.mp4" type="video/mp4">
-  </video>
-</figure>
-
-Part 2 : Completing Setup
-
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true">
-    <source src="media/Pisetup2-1.mp4" type="video/mp4">
-  </video>
-</figure>
-
+I'll update the link with a YouTube video when they finish doing their thing
 
 ## Further cool things we can do
 
