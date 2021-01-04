@@ -85,6 +85,7 @@ Check for updates once complete by running the following in terminal. It's very 
 
 - sudo apt-get -y update
 - sudo apt-get -t upgrade
+- sudo reboot
 
 And in theory ... that's it. Right? There's a simple test - run this in a terminal window
 
