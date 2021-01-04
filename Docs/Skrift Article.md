@@ -206,6 +206,8 @@ Where X.X.X.X is the IP address of your Pi. It should also work on the Pi's DNS 
 
 If you want to run your Pi on a Static IP, you can follow the guide : [https://www.raspberrypi.org/documentation/configuration/tcpip/](https://www.raspberrypi.org/documentation/configuration/tcpip/)
 
+Throughout this guide I've liberally used the command prompt or bash. If this is something unfamiliar to you [Scott Hanselmann](https://twitter.com/shanselman) has a great guide as part of his [Computer Stuff they didn't teach you](http://computerstufftheydidntteachyou.com/) YouTube series - [How do you use the Command line?](https://www.youtube.com/watch?v=QKBcHuA3VJE&list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr) - I'd recommend the entire series.
+
 ## References
 
  - Running .Net Core on Linux Debian - [https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian](https://docs.microsoft.com/en-us/dotnet/core/install/Linux-debian)
