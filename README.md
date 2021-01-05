@@ -2,7 +2,7 @@
 
 This is the repsitory for running the Umbraco Alpha code on a Raspberry Pi, intended for the Skrift Article January 2021
 
-[Main Article Link : Running Umbraco on a Raspberry Pi or How I stopped worrying and learned to love Linux](Docs/Skrift%20Article.md)
+[Main Article Link : Running Umbraco on a Raspberry Pi or How I stopped worrying and learned to love Linux](https://skrift.io/issues/running-umbraco-on-a-raspberry-pi-or-how-i-stopped-worrying-and-learned-to-love-linux/)
 
 Thanks to Pete Galagher for the assitance getting this guide put together. 
 
